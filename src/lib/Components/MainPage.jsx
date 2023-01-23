@@ -1,5 +1,7 @@
 import React from "react";
 
+import DataContext from "../DataContext";
+
 import "../Style/MainPage.css";
 
 import AutoComplete from "./AutoComplete";
