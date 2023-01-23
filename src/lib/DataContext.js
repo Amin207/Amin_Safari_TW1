@@ -7,6 +7,7 @@ import axios from "axios";
 const DataContext = createContext();
 
 export function DataProvider({ children }) {
+  // Get data of countries at start
   const [countryData, setCountryData] = useState([]);
 
   const getCountriesData = () => {
@@ -24,10 +25,16 @@ export function DataProvider({ children }) {
       });
   };
 
-  // Get data of countries at start
   useEffect(() => {
     if (_.isEmpty(countryData)) getCountriesData();
   }, []);
+
+  // Weather api and stuff
+  const [weatherData, setWeatherData] = useState([]);
+
+  const getWeatherData = () => {
+    
+  }
 
   return (
     <DataContext.Provider value={{ countryData }}>
