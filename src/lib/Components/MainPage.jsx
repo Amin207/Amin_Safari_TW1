@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import DataContext from "../DataContext";
 
@@ -12,6 +12,10 @@ import Flag from "./Flag";
 import Map from "./Map";
 
 export default function MainPage() {
+  const { countryData } = useContext(DataContext);
+
+  console.log(countryData);
+
   return (
     <div className="MainPage">
       <AutoComplete />
