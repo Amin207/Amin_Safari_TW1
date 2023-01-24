@@ -12,7 +12,7 @@
 }
 
 .autoComplete {
-  background-color: rgb(64, 149, 219);
+  background-color: rgb(5 74 131);
   grid-column: 1 / span 3;
   grid-row: 1;
 }
@@ -24,7 +24,7 @@
 
 .card {
   height: 225px;
-  border: 1px solid rgb(64, 149, 219);
+  border: 1px solid rgb(5 74 131);
 }
 
 .card>header,
@@ -33,7 +33,7 @@
   display: flex;
   align-items: center;
   font-weight: bold;
-  background-color: rgb(64, 149, 219);
+  background-color: rgb(5 74 131);
   color: white;
   padding: 10px;
   margin-bottom: 5px;
@@ -94,7 +94,7 @@
 
 .map {
   height: 225px;
-  border: 1px solid rgb(64, 149, 219);
+  border: 1px solid rgb(5 74 131);
   grid-column: 2 / span 2;
   /* grid-row: 3; */
 }
