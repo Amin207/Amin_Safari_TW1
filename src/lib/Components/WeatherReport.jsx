@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
+
+import useStore from "../useStore";
 
 export default function WeatherReport() {
+
+  const weatherData = useStore((s) => s.weatherData);
+  
+
   return <div className="card weatherReport">
             <header>WeatherReport</header>
             <div className="weatherIcon">test</div>

@@ -20,8 +20,8 @@ const typeObj = {
     url: () => {
       const url = "https://api.openweathermap.org/data/2.5/weather?";
       const params = new URLSearchParams({
-        lat: getState().capitalCoord.lat,
-        lon: getState().capitalCoord.lon,
+        lat: getState().selectedCountry.lat,
+        lon: getState().selectedCountry.lon,
         appid: weatherApiKey,
       }).toString();
       return url + params;
@@ -40,6 +40,7 @@ const api = (type) => {
     url: _.isFunction(url) ? url() : url,
   })
     .then(({ data }) => {
+      console.log(data);
       if (!_.isUndefined(data)) {
         typeObj[type]["func"](data);
       }

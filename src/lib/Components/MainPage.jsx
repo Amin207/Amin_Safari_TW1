@@ -24,7 +24,7 @@ export default function MainPage() {
 
   return (
     <div className="MainPage">
-      <AutoComplete countryData={countryData} />
+      <AutoComplete />
       <CountryDetails />
       <CallingCode />
       <Flag />

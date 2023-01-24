@@ -4,6 +4,7 @@ import "regenerator-runtime/runtime";
 
 const useStore = create((set, get) => ({
   countryData: [],
+  selectedCountry: {},
   capitalCoord: { lat: undefined, lon: undefined },
 
   weatherData: {},
