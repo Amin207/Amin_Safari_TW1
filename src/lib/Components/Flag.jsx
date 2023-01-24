@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function Flag() {
-  return <div>Flag</div>;
+  return <div className="card flag">Flag</div>;
 }

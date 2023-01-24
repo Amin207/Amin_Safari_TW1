@@ -20,15 +20,15 @@ export default function MainPage() {
     api.getCountry();
   }, []);
 
-  console.log(countryData)
+  // console.log(countryData)
 
   return (
     <div className="MainPage">
-      <AutoComplete />
-      <WeatherReport />
-      <CallingCode />
+      <AutoComplete countryData={countryData} />
       <CountryDetails />
+      <CallingCode />
       <Flag />
+      <WeatherReport />
       <Map />
     </div>
   );
