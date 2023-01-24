@@ -18,9 +18,13 @@ const typeObj = {
   getWeather: {
     method: "get",
     url: () => {
-      const lat = getState().capitalCoord.lat;
-      const lon = getState().capitalCoord.lon;
-      return `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${weatherApiKey}`;
+      const url = "https://api.openweathermap.org/data/2.5/weather?";
+      const params = new URLSearchParams({
+        lat: getState().capitalCoord.lat,
+        lon: getState().capitalCoord.lon,
+        appid: weatherApiKey,
+      }).toString();
+      return url + params;
     },
     func: (data) => {
       getState().updateState("weatherData", data);
