@@ -9,10 +9,7 @@ import useStore from "../useStore";
 import shallow from "zustand";
 
 export default function AutoComplete() {
-
-
   const countryData = useStore((s) => s.countryData);
-  const selectedCountry = useStore((s) => s.selectedCountry);
   const updateState = useStore((s) => s.updateState);
 
   const options = countryData.map((item) => {
@@ -28,13 +25,7 @@ export default function AutoComplete() {
 
   const handleOnchange = (e) => {
     updateState("selectedCountry", e);
-    if (
-      _.isUndefined(selectedCountry["lat"]) &&
-      _.isUndefined(selectedCountry["lon"])
-    ) {
-      console.log("test api");
-      api.getWeather();
-    }
+    api.getWeather({ lat: e.lat, lon: e.lon });
   };
 
   return (
