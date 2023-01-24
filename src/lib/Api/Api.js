@@ -1,29 +1,51 @@
-import { useState } from "react";
+import useStore from "../useStore";
 
 import axios from "axios";
 import _ from "lodash";
 
-const getCountriesDataApi = () => {
-  let d = [];
+const { getState } = useStore;
 
-  axios({
+const weatherApiKey = "98b874cce4e331429cbbe740d7f2b2f5";
+
+const typeObj = {
+  getCountry: {
     method: "get",
     url: "https://restcountries.com/v3.1/all",
+    func: (data) => {
+      getState().updateState("countryData", data);
+    },
+  },
+  getWeather: {
+    method: "get",
+    url: () => {
+      const lat = getState().capitalCoord.lat;
+      const lon = getState().capitalCoord.lon;
+      return `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${weatherApiKey}`;
+    },
+    func: (data) => {
+      getState().updateState("weatherData", data);
+    },
+  },
+};
+
+const api = (type) => {
+  const url = typeObj[type]["url"];
+
+  axios({
+    method: typeObj[type]["method"],
+    url: _.isFunction(url) ? url() : url,
   })
     .then(({ data }) => {
       if (!_.isUndefined(data)) {
-        data.forEach((e) => {
-          d.push(e);
-        });
+        typeObj[type]["func"](data);
       }
     })
     .catch((err) => {
       console.log(err);
     });
-
-  return d;
 };
 
 export default {
-  getCountries: () => getCountriesDataApi(),
+  getCountry: () => api("getCountry"),
+  getWeather: () => api("getWeather"),
 };

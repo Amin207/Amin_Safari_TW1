@@ -1,5 +1,9 @@
 import React, { useEffect } from "react";
 
+import useStore from "../useStore";
+
+import api from "../Api/Api";
+
 import "../Style/MainPage.css";
 
 import AutoComplete from "./AutoComplete";
@@ -10,6 +14,14 @@ import Flag from "./Flag";
 import Map from "./Map";
 
 export default function MainPage() {
+  const countryData = useStore((s) => s.countryData);
+
+  useEffect(() => {
+    api.getCountry();
+  }, []);
+
+  console.log(countryData)
+
   return (
     <div className="MainPage">
       <AutoComplete />
