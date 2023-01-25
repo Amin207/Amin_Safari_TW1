@@ -1,27 +1,76 @@
-import React, { useState } from "react";
-import Select from 'react-select';
+import React, { useEffect, useState } from "react";
 
-const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' },
-];
+import _ from "lodash";
 
+import api from "../Api/Api";
 
-export default function AutoComplete({countryData}) {
-  console.log(countryData)
+import useStore from "../useStore";
+import { shallow } from "zustand/shallow";
 
-  const [selectedOption, setSelectedOption] = useState(null);
+import { AutoBox, StyledAutocomplete } from "../Style/Style";
+import { TextField } from "@mui/material";
 
-  return <div className="autoComplete">
-    <header>AutoComplete</header>
-    <Select
-      className="selectedOption"
-      defaultValue={selectedOption}
-      onChange={setSelectedOption}
-      options={options}
-    />
+export default function AutoComplete() {
+  const { countryData, updateState } = useStore(
+    (s) => ({ countryData: s.countryData, updateState: s.updateState }),
+    shallow
+  );
 
+  const [options, setOptions] = useState([]);
 
-  </div>;
+  useEffect(() => {
+    if (!_.isEmpty(countryData)) {
+      countryData
+        .sort((a, b) => {
+          const x = a.name.common.replace(/\s/g, "").toLowerCase();
+          const y = b.name.common.replace(/\s/g, "").toLowerCase();
+          return x > y ? 1 : x < y ? -1 : 0;
+        })
+        .forEach((e, i) => {
+          setOptions((prev) => [
+            ...prev,
+            {
+              id: i,
+              label: e.name.common,
+              lat: e.latlng[0],
+              lon: e.latlng[1],
+              map: e.maps,
+              flag: e.flags,
+              callingCode: e.idd,
+              detail: {
+                nativeName: e.name.official,
+                capital: e.capital,
+                region: e.region,
+                population: e.population,
+                languages: e.languages,
+                timeZones: e.timezones,
+              },
+            },
+          ]);
+        });
+    }
+  }, [countryData]);
+
+  const handleOnchange = (event, newValue) => {
+    if (!_.isNull(newValue)) {
+      updateState("selectedCountry", newValue);
+      api.getWeather({ lat: newValue.lat, lon: newValue.lon });
+    }
+  };
+
+  return (
+    <AutoBox>
+      <StyledAutocomplete
+        options={options ? options : [{ id: 0, label: "No Countries..." }]}
+        renderInput={(params) => (
+          <TextField {...params} label="Choose a country" />
+        )}
+        sx={{borderRadius: '5px' , boxShadow : 1}}
+        dense="ture"
+        size="small"
+        disableClearable
+        onChange={handleOnchange}
+      />
+    </AutoBox>
+  );
 }

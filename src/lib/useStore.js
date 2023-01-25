@@ -2,9 +2,9 @@ import { create } from "zustand";
 
 import "regenerator-runtime/runtime";
 
-const useStore = create((set, get) => ({
+const useStore = create((set, get) => ({ 
   countryData: [],
-  capitalCoord: { lat: undefined, lon: undefined },
+  selectedCountry: {},
 
   weatherData: {},
 

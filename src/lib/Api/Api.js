@@ -17,11 +17,11 @@ const typeObj = {
   },
   getWeather: {
     method: "get",
-    url: () => {
+    url: ({ lat, lon }) => {
       const url = "https://api.openweathermap.org/data/2.5/weather?";
       const params = new URLSearchParams({
-        lat: getState().capitalCoord.lat,
-        lon: getState().capitalCoord.lon,
+        lat: lat,
+        lon: lon,
         appid: weatherApiKey,
       }).toString();
       return url + params;
@@ -32,14 +32,15 @@ const typeObj = {
   },
 };
 
-const api = (type) => {
+const api = (type, ...arg) => {
   const url = typeObj[type]["url"];
 
   axios({
     method: typeObj[type]["method"],
-    url: _.isFunction(url) ? url() : url,
+    url: _.isFunction(url) ? url(...arg) : url,
   })
     .then(({ data }) => {
+      console.log(data);
       if (!_.isUndefined(data)) {
         typeObj[type]["func"](data);
       }
@@ -51,5 +52,5 @@ const api = (type) => {
 
 export default {
   getCountry: () => api("getCountry"),
-  getWeather: () => api("getWeather"),
+  getWeather: (...arg) => api("getWeather", ...arg),
 };
