@@ -1,135 +1,36 @@
 .MainPage {
   width: 100%;
   height: 100vh;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   display: flex;
   flex-direction: column;
   padding: 0;
 }
 
-.autoCompleteBox {
+/* .autoCompleteBox {
   width: 100%;
   height: 15%;
-}
+} */
 
 .autoComplete {
   width: 100%;
-  height: 100%;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgb(5 74 131);
 }
 
-.middleContent {
+/* .middleContent {
   height: 45%;
   display: flex;
-}
+} */
 
-.mapBox {
+/* .mapBox {
   height: 40%;
-}
-
-.selectedOption {
-  width: 70%;
-  margin: 2px auto;
-}
-
-.card {
-  height: 260px;
-  border: 1px solid rgb(5 74 131);
-  border-radius: 4px;
-}
-
-.card > header,
-.autoComplete > header {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-  background-color: rgb(5 74 131);
-  color: white;
-  padding: 10px;
-  margin-bottom: 5px;
-}
-
-.autoComplete > header {
-  justify-content: center;
-}
-
-.card > ul {
-  width: 100%;
-  padding: 10px 10px 0;
-}
-
-.card > ul > li {
-  margin-bottom: 4px;
-}
-
-.callingCode > header {
-  justify-content: center;
-}
-
-.codeWrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-}
-
-.codeWrapper > span {
-  width: 30px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 2px solid black;
-  margin: 4px;
-  padding: 3px;
-}
-
-.flag {
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-}
-
-.flag > img {
-  width: 100%;
-  /* height: 100%; */
-  object-fit: contain;
-}
-
-.weatherIcon {
-  width: 100%;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 5px;
-}
+} */
 
 .map {
-  height: 225px;
-  border: 1px solid rgb(5 74 131);
-  grid-column: 2 / span 2;
-  /* grid-row: 3; */
-  border-radius: 4px;
-}
-
-@media screen and (max-width: 600px) {
-  .selectedOption {
-    width: 90%;
-  }
-
-  .card,
-  .map {
-    grid-column: span 3;
-  }
-
-  .card {
-    height: 298px;
-  }
+  width: 100%;
+  height: 200px;
 }

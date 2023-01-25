@@ -4,11 +4,13 @@ import useStore from "../useStore";
 
 import _ from "lodash";
 
+import { DetailPaper } from "../Style/Style";
+
 export default function WeatherReport() {
   const weatherData = useStore((s) => s.weatherData);
 
   return (
-    <div className="card weatherReport"> 
+    <DetailPaper elevation={2}>
       <header>WeatherReport</header>
       <div className="weatherIcon">test</div>
       <ul>
@@ -31,6 +33,6 @@ export default function WeatherReport() {
           <span>{!_.isEmpty(weatherData) ? weatherData.visibility : "--"}</span>
         </li>
       </ul>
-    </div>
+    </DetailPaper>
   );
 }

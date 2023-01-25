@@ -7,6 +7,8 @@ import GoogleMapReact from "google-map-react";
 
 import pointer from "../Resource/Images/maps-and-flags.png";
 
+import { MapBox } from "../Style/Style";
+
 const Marker = ({ img }) => <img src={img} />;
 
 export default function Map() {
@@ -32,7 +34,7 @@ export default function Map() {
   };
 
   return (
-    <div className="map">
+    <MapBox>
       <GoogleMapReact
         bootstrapURLKeys={{ key: "" }}
         center={mapOptions.center}
@@ -40,6 +42,6 @@ export default function Map() {
       >
         <Marker lat={location.lat} lng={location.lng} img={pointer} />
       </GoogleMapReact>
-    </div>
+    </MapBox>
   );
 }
