@@ -21,7 +21,6 @@ export default function AutoComplete() {
       return x > y ? 1 : x < y ? -1 : 0;
     })
     .map((item) => {
-      // console.log(item.capital);
       return {
         value: item.name.common,
         label: item.name.common,
