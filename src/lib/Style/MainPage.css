@@ -1,48 +1,32 @@
 .MainPage {
   width: 100%;
-  min-height: 100vh;
-  overflow-x: hidden;
-  /* display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between; */
-  padding: 3px;
-  display: grid;
-  gap: 5px;
+  height: 100vh;
+  /* overflow-x: hidden; */
+  display: flex;
+  flex-direction: column;
+  padding: 0;
 }
+
+/* .autoCompleteBox {
+  width: 100%;
+  height: 15%;
+} */
 
 .autoComplete {
-  padding-bottom: 10px;
-  background-color: rgb(5 74 131);
-  grid-column: 1 / span 3;
-  grid-row: 1;
-  border-radius: 4px;
-}
-
-.selectedOption {
-  width: 70%;
-  margin: 2px auto;
-}
-
-.card {
-  height: 260px;
-  border: 1px solid rgb(5 74 131);
-  border-radius: 4px;
-}
-
-.card>header,
-.autoComplete>header {
   width: 100%;
+  height: 100px;
   display: flex;
+  justify-content: center;
   align-items: center;
-  font-weight: bold;
   background-color: rgb(5 74 131);
-  color: white;
-  padding: 10px;
-  margin-bottom: 5px;
 }
 
-.autoComplete>header {
+/* .middleContent {
+  height: 45%;
+  display: flex;
+} */
+
+/* .autoComplete>header {
   justify-content: center;
 }
 
@@ -87,9 +71,8 @@
 
 .flag>img {
   width: 100%;
-  /* height: 100%; */
   object-fit: contain;
-}
+} */
 
 .weatherIcon {
   width: 100%;
@@ -121,24 +104,6 @@
 }
 
 .map {
-  height: 225px;
-  border: 1px solid rgb(5 74 131);
-  grid-column: 2 / span 2;
-  /* grid-row: 3; */
-  border-radius: 4px;
-}
-
-@media screen and (max-width: 600px) {
-  .selectedOption {
-    width: 90%;
-  }
-
-  .card,
-  .map {
-    grid-column: span 3;
-  }
-
-  .card {
-    height: 298px;
-  }
+  width: 100%;
+  height: 200px;
 }
