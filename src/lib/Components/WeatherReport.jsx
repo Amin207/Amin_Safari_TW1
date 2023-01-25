@@ -6,10 +6,6 @@ import _ from "lodash";
 
 export default function WeatherReport() {
   const weatherData = useStore((s) => s.weatherData);
-  console.log(
-    "🚀 ~ file: WeatherReport.jsx:8 ~ WeatherReport ~ weatherData",
-    weatherData
-  );
 
   return (
     <div className="card weatherReport">
