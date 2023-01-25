@@ -7,10 +7,26 @@ import _ from "lodash";
 export default function WeatherReport() {
   const weatherData = useStore((s) => s.weatherData);
 
+
+  const icon = () => {
+    if (!_.isEmpty(weatherData) && weatherData.weather) {
+      const iconUrl = "http://openweathermap.org/img/w/" + weatherData.weather[0].icon + ".png"
+      const description = weatherData.weather[0].description
+      return <figure>
+                <img src={iconUrl} alt="icon" />
+                <figcaption>{description}</figcaption>
+            </figure>
+    }
+    return ""
+  }
+
+
   return (
-    <div className="card weatherReport"> 
+    <div className="card weatherReport">
       <header>WeatherReport</header>
-      <div className="weatherIcon">test</div>
+      <div className="weatherIcon">
+        {icon()}
+      </div>
       <ul>
         <li>
           Wind Speed:{" "}
