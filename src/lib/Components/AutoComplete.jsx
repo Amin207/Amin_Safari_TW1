@@ -7,6 +7,7 @@ import api from "../Api/Api";
 
 import useStore from "../useStore";
 import { shallow } from "zustand/shallow";
+import { Box } from "@mui/material";
 
 export default function AutoComplete() {
   const { countryData, updateState } = useStore(
@@ -45,14 +46,7 @@ export default function AutoComplete() {
     api.getWeather({ lat: e.lat, lon: e.lon });
   };
 
-  return (
-    <div className="autoComplete">
-      <header>AutoComplete</header>
-      <Select
-        className="selectedOption"
-        onChange={handleOnchange}
-        options={options}
-      />
-    </div>
-  );
+  return <Box className="autoComplete">
+
+  </Box>;
 }

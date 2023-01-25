@@ -13,23 +13,27 @@ import CountryDetails from "./CountryDetails";
 import Flag from "./Flag";
 import Map from "./Map";
 
-export default function MainPage() {
-  const countryData = useStore((s) => s.countryData);
+import { Box } from "@mui/material";
 
+export default function MainPage() {
   useEffect(() => {
     api.getCountry();
   }, []);
 
-  // console.log(countryData)
-
   return (
-    <div className="MainPage">
-      <AutoComplete />
-      <CountryDetails />
-      <CallingCode />
-      <Flag />
-      <WeatherReport />
-      <Map />
-    </div>
+    <Box className="MainPage">
+      <Box className="autoCompleteBox">
+        <AutoComplete />
+      </Box>
+      <Box className="middleContent">
+        <CountryDetails />
+        <CallingCode />
+        <Flag />
+        <WeatherReport />
+      </Box>
+      <Box className="mapBox">
+        <Map />
+      </Box>
+    </Box>
   );
 }
