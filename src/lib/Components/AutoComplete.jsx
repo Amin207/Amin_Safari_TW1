@@ -21,6 +21,7 @@ export default function AutoComplete() {
       return x > y ? 1 : x < y ? -1 : 0;
     })
     .map((item) => {
+      // console.log(item.capital);
       return {
         value: item.name.common,
         label: item.name.common,
@@ -28,6 +29,15 @@ export default function AutoComplete() {
         lon: item.latlng[1],
         map: item.maps.googleMaps,
         flag: item.flags,
+        callingCode: item.idd.root,
+        detail: {
+          nativeName: item.name.official,
+          capital: item.capital,
+          region: item.region,
+          population: item.population,
+          languages: item.languages,
+          timeZones: item.timezones,
+        },
       };
     });
 
