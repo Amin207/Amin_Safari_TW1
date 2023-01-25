@@ -8,7 +8,7 @@ export default function WeatherReport() {
   const weatherData = useStore((s) => s.weatherData);
 
   return (
-    <div className="card weatherReport">
+    <div className="card weatherReport"> 
       <header>WeatherReport</header>
       <div className="weatherIcon">test</div>
       <ul>

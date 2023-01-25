@@ -11,17 +11,18 @@ export default function Map() {
   const selectedCountry = useStore((s) => s.selectedCountry);
 
   const handleCoord = (type) => {
-    if (
-      !_.isEmpty(selectedCountry) &&
-      !_.isUndefined(selectedCountry.lat) &&
-      !_.isUndefined(selectedCountry.lon)
-    ) {
-      console.log(selectedCountry);
-      if (type === "lat") return selectedCountry.lat;
-      if (type === "lon") return selectedCountry.lon;
-    } else {
-      return 0;
-    }
+    return 0
+    // if (
+    //   !_.isEmpty(selectedCountry) &&
+    //   !_.isUndefined(selectedCountry.lat) &&
+    //   !_.isUndefined(selectedCountry.lon)
+    // ) {
+    //   console.log(selectedCountry);
+    //   if (type === "lat") return selectedCountry.lat;
+    //   if (type === "lon") return selectedCountry.lon;
+    // } else {
+    //   return 0;
+    // }
   };
 
   const defaultProps = {

@@ -28,7 +28,7 @@ export default function AutoComplete() {
         lon: item.latlng[1],
         map: item.maps,
         flag: item.flags,
-        callingCode: item.idd.root,
+        callingCode: item.idd,
         detail: {
           nativeName: item.name.official,
           capital: item.capital,
@@ -49,7 +49,7 @@ export default function AutoComplete() {
     <div className="autoComplete">
       <header>AutoComplete</header>
       <Select
-        className="selectedCountry"
+        className="selectedOption"
         onChange={handleOnchange}
         options={options}
       />
