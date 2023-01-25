@@ -26,7 +26,7 @@ export default function AutoComplete() {
         label: item.name.common,
         lat: item.latlng[0],
         lon: item.latlng[1],
-        map: item.maps.googleMaps,
+        map: item.maps,
         flag: item.flags,
         callingCode: item.idd.root,
         detail: {

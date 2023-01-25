@@ -40,6 +40,7 @@ const api = (type, ...arg) => {
     url: _.isFunction(url) ? url(...arg) : url,
   })
     .then(({ data }) => {
+      console.log(data);
       if (!_.isUndefined(data)) {
         typeObj[type]["func"](data);
       }

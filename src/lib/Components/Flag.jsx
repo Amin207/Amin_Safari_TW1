@@ -7,7 +7,7 @@ import _ from "lodash";
 export default function Flag() {
   const selectedCountry = useStore((s) => s.selectedCountry);
 
-  const url = !_.isEmpty(selectedCountry) ? selectedCountry.flag.png : "";
+  const url = !_.isEmpty(selectedCountry) ? selectedCountry.flag.svg : "";
 
   return (
     <div className="card flag">
