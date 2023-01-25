@@ -1,49 +1,44 @@
-import React from "react";
-
-import GoogleMapReact from "google-map-react";
+import React, { useEffect, useState } from "react";
 
 import useStore from "../useStore";
-import _ from "lodash";
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+import _ from "lodash";
+import GoogleMapReact from "google-map-react";
+
+import pointer from "../Resource/Images/maps-and-flags.png";
+
+const Marker = ({ img }) => <img src={img} />;
 
 export default function Map() {
   const selectedCountry = useStore((s) => s.selectedCountry);
 
-  const handleCoord = (type) => {
+  const [location, setLocation] = useState({});
+
+  useEffect(() => {
     if (
       !_.isEmpty(selectedCountry) &&
       !_.isUndefined(selectedCountry.lat) &&
       !_.isUndefined(selectedCountry.lon)
     ) {
-      console.log(selectedCountry);
-      if (type === "lat") return selectedCountry.lat;
-      if (type === "lon") return selectedCountry.lon;
+      setLocation({ lat: selectedCountry.lat, lng: selectedCountry.lon });
     } else {
-      return 0;
+      setLocation({ lat: 50, lng: 50 });
     }
-  };
+  }, [selectedCountry]);
 
-  const defaultProps = {
-    center: {
-      lat: handleCoord("lat"),
-      lng: handleCoord("lon"),
-    },
-    zoom: 11,
+  const mapOptions = {
+    center: location,
+    zoom: 5,
   };
 
   return (
     <div className="map">
       <GoogleMapReact
         bootstrapURLKeys={{ key: "" }}
-        defaultCenter={defaultProps.center}
-        defaultZoom={defaultProps.zoom}
+        center={mapOptions.center}
+        zoom={mapOptions.zoom}
       >
-        <AnyReactComponent
-          lat={handleCoord("lat")}
-          lng={handleCoord("lon")}
-          text="My Marker"
-        />
+        <Marker lat={location.lat} lng={location.lng} img={pointer} />
       </GoogleMapReact>
     </div>
   );
