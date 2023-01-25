@@ -53,6 +53,7 @@ const MiddleContentBox = styled(Box)(({ theme }) => ({
 
 const FlagPaper = styled(Paper)(({ theme }) => ({
   display: "flex",
+  flexDirection : 'column',
   justifyContent: "center",
   alignItems: "center",
   overflow: "hidden",

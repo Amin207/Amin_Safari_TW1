@@ -1,22 +1,20 @@
-import React from "react";
+// import React from "react";
 
-import useStore from "../useStore";
+// import useStore from "../useStore";
 
-import _ from "lodash";
+// import _ from "lodash";
 
-export default function CallingCode() {
+// import { DetailPaper } from "../Style/Style";
 
-  const callingCode = useStore((s) => s.selectedCountry?.callingCode);
+// export default function CallingCode() {
 
-  console.log("test",callingCode)
+//   const callingCode = useStore((s) => s.selectedCountry?.callingCode);
 
-  return <div className="card callingCode">
-            <header>CallingCode</header>
-            <div className="codeWrapper">
-              {/* {callingCode} */}
-              {/* <span></span>
-              <span></span>
-              <span></span> */}
-            </div>
-    </div>;
-}
+//   console.log("test",callingCode)
+  
+
+//   return <DetailPaper elevation={2}>
+//             <header className="title">CallingCode</header>
+//             54
+//     </DetailPaper>;
+// }

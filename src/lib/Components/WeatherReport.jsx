@@ -27,11 +27,11 @@ export default function WeatherReport() {
 
     <DetailPaper elevation={2}>
 
-      <header>WeatherReport</header>
+      <header className="title">WeatherReport</header>
       <div className="weatherIcon">
         {icon()}
       </div>
-      <ul>
+      <ul className="list">
         <li>
           Wind Speed:{" "}
           <span>{!_.isEmpty(weatherData) ? weatherData.wind.speed : "--"}</span>

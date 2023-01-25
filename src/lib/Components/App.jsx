@@ -1,4 +1,5 @@
 import "../Style/App.css";
+import "../Style/MainPage.css"
 
 import MainPage from "./MainPage";
 

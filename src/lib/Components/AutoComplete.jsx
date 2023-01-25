@@ -65,6 +65,7 @@ export default function AutoComplete() {
         renderInput={(params) => (
           <TextField {...params} label="Choose a country" />
         )}
+        sx={{borderRadius: '5px' , boxShadow : 1}}
         dense="ture"
         size="small"
         disableClearable
